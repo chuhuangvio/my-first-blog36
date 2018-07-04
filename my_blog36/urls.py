@@ -15,13 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.urls import re_path
+from django.urls import include, re_path
 from article import views
+from resume import resviews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     re_path(r'^(?P<id>\d+)/$', views.detail, name='detail'),
     re_path(r'^test/$',views.test),
-    re_path(r'^article/new', views.article_new, name='article_new'),
+    re_path(r'^resume/new', resviews.resume_new, name='resume_new'),
 ]
